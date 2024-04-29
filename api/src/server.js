@@ -20,7 +20,7 @@ app.get("/message/:id/:user", (request, response) => {
 app.get("/user", (request, response) => {
     const { page, limit } = request.query;
 
-    response.send(`página: ${page} e mostrar o limite: ${limit}`);
+    response.send(`página: ${page}  limite é esse: ${limit}`);
 });
 
 // criando uma porta para escutar requisições e solicitações
