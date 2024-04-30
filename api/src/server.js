@@ -4,10 +4,20 @@ const express = require('express');
 // inicializando express para utilização 
 const app = express();
 
-//  
-app.post("/users", (request, response) => {
+// mudando o padrão de recebimento dessas informações para json
+app.use(express.json());
 
-    response.send("você chamou o post");
+// post é usado para criar cadastrar algo (pessoas, produtos e etc) utilizando o corpo da requisição
+app.post("/users", (request, response) => {
+    // pegando as informações do post diretamente do postman
+    const { name, email, password } = request.body;
+
+    /* devolvendo as informações usando send
+     response.send(`Usuário: ${name}. - E-mail: ${email}. E a senha é: ${password} `); 
+     */
+
+    // devolvendo as informações usando json no formato objeto
+    response.json({ name, email, password });
 });
 
 // criando uma porta para escutar requisições e solicitações
