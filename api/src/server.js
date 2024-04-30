@@ -12,11 +12,11 @@ app.post("/users", (request, response) => {
     // pegando as informações do post diretamente do postman
     const { name, email, password } = request.body;
 
-    /* devolvendo as informações usando send
-     response.send(`Usuário: ${name}. - E-mail: ${email}. E a senha é: ${password} `); 
-     */
+    // devolvendo as informações usando send
+    // response.send(`Usuário: ${name}. - E-mail: ${email}. E a senha é: ${password} `);
 
-    // devolvendo as informações usando json no formato objeto
+
+    // devolvendo as informações usando json
     response.json({ name, email, password });
 });
 
