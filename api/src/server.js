@@ -8,11 +8,16 @@ const express = require('express');
 
 const routes = require('./routes');
 
+// importando o banco de dados
+const database = require("./database/sqlite")
+
 
 const app = express();
 app.use(express.json());
 
 app.use(routes);
+
+database();
 
 // captura de erros, requisições, as respostas e o prosseguir
 // só os parâmetros error e response estão em uso, pois next não vai avançar quando tiver o erro
