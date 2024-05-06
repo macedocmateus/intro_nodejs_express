@@ -14,6 +14,11 @@ class UsersController {
             throw new AppError("Este e-mail ja foi cadastrado");
         }
 
+        await database.run(
+            "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
+            [name, email, password]
+        );
+
         return response.status(201).json();
     }
 }
