@@ -30,6 +30,7 @@ usersRoutes.post("/", myMiddleware, usersController.create);
 */
 
 usersRoutes.post("/", usersController.create);
+usersRoutes.put("/:id", usersController.update);
 
 // exportando o arquivo para utilização
 module.exports = usersRoutes;
