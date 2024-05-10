@@ -60,9 +60,11 @@ class NotesController {
     }
 
     async index(request, response) {
-        const { user_id } = request.query;
+        const { user_id, title } = request.query;
         const notes = await knex("notes")
             .where({ user_id })
+            // pesquisa pelo que esta buscando antes ou depois da palavra
+            .whereLike("title", `%${title}%`)
             .orderBy("title");
 
         return response.json(notes);
