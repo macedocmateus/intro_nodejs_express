@@ -4,7 +4,7 @@ require('express-async-errors');
 // importando a classe AppError
 const AppError = require('./utils/AppError');
 
-uploadConfig = require('./configs/upload');
+const uploadConfig = require('./configs/upload');
 
 const express = require('express');
 
@@ -13,7 +13,11 @@ const routes = require('./routes');
 // importando o banco de dados
 const migrationsRun = require('./database/sqlite/migrations');
 
+// importando o cors para atender as requisições do front-end
+const cors = require('cors');
+
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 app.use(routes);
