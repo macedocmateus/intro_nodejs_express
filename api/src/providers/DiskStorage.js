@@ -4,7 +4,7 @@ const uploadConfig = require('../configs/upload');
 
 class DiskStorage {
     async saveFile(file) {
-        // função para mover arquivo da pasta temp para pasta de destino
+        // função para mover/renomear, o codigo abaixo o arquivo da pasta temp para pasta de destino
         await fs.promises.rename(
             path.resolve(uploadConfig.TMP_FOLDER, file),
             path.resolve(uploadConfig.UPLOADS_FOLDER, file)
@@ -24,7 +24,7 @@ class DiskStorage {
             return;
         }
 
-        await fs.promises.unlink(filePath);
+        await fs.promises.unlink(filePath); // deleta o arquivo
     }
 }
 

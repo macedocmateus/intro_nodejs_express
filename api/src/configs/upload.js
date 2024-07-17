@@ -3,7 +3,7 @@ const multer = require('multer'); // multer é biblioteca para fazer uploads
 const crypto = require('crypto'); // função hash para criar arquivo com nome único
 
 const TMP_FOLDER = path.resolve(__dirname, '..', '..', 'tmp'); // é onde a imagem chega
-const UPLOADS_FOLDER = path.resolve(__dirname, 'uploads'); // é onde a imagem vai ficar ou seja, destino
+const UPLOADS_FOLDER = path.resolve(TMP_FOLDER, 'uploads'); // é onde a imagem vai ficar ou seja, destino
 
 const MULTER = {
     storage: multer.diskStorage({
